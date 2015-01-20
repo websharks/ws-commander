@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 (function()
 {
 	// Allows usage of `window` variable instead of `GLOBAL` as needed.
