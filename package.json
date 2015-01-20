@@ -1,0 +1,23 @@
+{
+  "name":         "ws-commander",
+  "version":      "0.0.1",
+  "description":  "WebSharks command-line utilities",
+  "license":      "GPLv3",
+  "main":         "cmdr.js",
+
+  "bin":          {
+    "ws": "./cmdr.js"
+  },
+  "scripts":      {
+    "setup": "node utils/setup.js",
+    "start": "node cmdr.js"
+  },
+
+  "man":          ["./main/ws-commander.1"],
+
+  "dependencies": {
+    "osx-notifier": "*"
+  },
+  "os":           "darwin",
+  "private":      true
+}
