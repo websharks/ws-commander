@@ -1,7 +1,7 @@
 WS Commander
 ============
 
-Command-line tools for WebSharks
+Command-line tools for WebSharks. Made for OSX + Homebrew.
 
 
 ## Installation
@@ -15,7 +15,7 @@ npm install -g ws-commander
 
 To use the WS Commander library, you should first run the installation script via `ws-install` (or `npm setup` within the `ws-commander` installation directory).
 
-This will 
+This will automatically set up your `git` aliases.
 
 ### Commands
 

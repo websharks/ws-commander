@@ -20,7 +20,8 @@
   },
 
   "dependencies": {
-    "osx-notifier": "*"
+    "osx-notifier": "*",
+    "node-minify":  "*"
   },
   "os":           "darwin",
   "private":      true
