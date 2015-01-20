@@ -6,14 +6,16 @@
   "main":         "cmdr.js",
 
   "bin":          {
-    "ws": "./cmdr.js"
+    "ws":         "./cmdr.js",
+    "ws-install": "./utils/setup.js"
   },
   "scripts":      {
-    "setup": "node utils/setup.js",
-    "start": "node cmdr.js"
+    "setup":       "node utils/setup.js",
+    "start":       "node cmdr.js",
+    "postinstall": "node utils/setup.js"
   },
 
-  "man":          ["./main/ws-commander.1"],
+  "man":          ["./man/ws.1"],
 
   "dependencies": {
     "osx-notifier": "*"
