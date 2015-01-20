@@ -6,7 +6,8 @@
 
 	var fs = require('fs'),
 		notify = require('osx-notifier'),
-		readline = require('readline');
+		readline = require('readline'),
+		compressor = require('node-minify');
 
 	var opts = {};
 
@@ -39,5 +40,65 @@
 		       });
 	};
 
-	/* === Etc. ==== */
+	ws.cwd = process.cwd();
+
+	/* === Prep command arguments and flags ==== */
+
+	var flags = [],
+		command = false,
+		args = [];
+
+	process.argv.slice(2).forEach(
+		function(val, index)
+		{
+			if(val.charAt(0) === '-') flags.push(val);
+			else if(index === 0) command = val.trim();
+			else args.push(val);
+		}
+	);
+
+	/* === Determine command === */
+
+	if(command === 'min' || command === 'minify')
+	{
+		if(!args.length) console.error('No arguments specified for minification.');
+
+		args.forEach(
+			function(fd)
+			{
+				var path;
+
+				if(fd.charAt(0) === '/') path = fd;
+				else path = ws.cwd + fd;
+
+				if(!fs.existsSync(path)) return console.log('Skipping `' + path + '`. Path not found.');
+
+				var stat = fs.statSync(path);
+
+				// Single files
+				if(stat.isFile())
+				{
+					// Minify JS
+					if(path.match(/\.js$/))
+					{
+
+					}
+
+					// Minify CSS
+					else if(path.match(/\.css$/))
+					{
+
+					}
+				}
+
+				// Directories
+				else if(stat.isDirectory())
+				{
+
+				}
+			}
+		);
+	}
+	else
+		console.error('No valid command specified. See `man ws` for details on usage.');
 })();
