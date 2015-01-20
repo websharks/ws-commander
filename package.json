@@ -15,7 +15,9 @@
     "postinstall": "node utils/setup.js"
   },
 
-  "man":          ["./man/ws.1"],
+  "directories":  {
+    "man": "./man/ws.1"
+  },
 
   "dependencies": {
     "osx-notifier": "*"
