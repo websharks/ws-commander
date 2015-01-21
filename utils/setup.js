@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 (function()
 {
 	var opts = {}; // Options object

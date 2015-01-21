@@ -14,7 +14,7 @@
 	if(fs.existsSync(__dirname + '/cmdr.json'))
 		opts = require(__dirname + '/cmdr.json');
 
-	if(!opts.user_name) console.error('No basic config found. Please run `npm setup` from the `ws-commander` installation directory before trying to use this tool.');
+	if(!opts.user_name) console.error('No basic config found. Please run `ws-install` before trying to use this tool.');
 
 	/* === Done Basic Setup === */
 
@@ -32,11 +32,11 @@
 	ws.notify = function(title, msg)
 	{
 		notify({
-			       type      : "info",
-			       "title"   : "WS Commander",
-			       "subtitle": title,
-			       "message" : msg,
-			       "group"   : "ws-commander"
+			       type    : 'info',
+			       title   : 'WS Commander',
+			       subtitle: title,
+			       message : msg,
+			       group   : 'ws-commander'
 		       });
 	};
 
