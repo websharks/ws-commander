@@ -122,7 +122,26 @@
 				// Directories
 				else if(stat.isDirectory())
 				{
+					var exec = require('child_process').exec;
+					exec('find ' + path + ' | grep \'\.css$\'', function(err, stdout, stderr)
+					{
+						var file_list = stdout.split('\n');
 
+						file_list.forEach(function(val, index)
+						                  {
+							                  if(val.length && !val.match(/\.min\.css$/)) compressCSS(val);
+						                  });
+					});
+
+					exec('find ' + path + ' | grep \'\.js$\'', function(err, stdout, stderr)
+					{
+						var file_list = stdout.split('\n');
+
+						file_list.forEach(function(val, index)
+						                  {
+							                  if(val.length && !val.match(/\.min\.js$/)) compressJS(val);
+						                  });
+					});
 				}
 			}
 		);
