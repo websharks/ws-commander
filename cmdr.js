@@ -20,6 +20,7 @@
 
 	/* === Global Utilities Setup === */
 	GLOBAL.ws = {};
+	ws.config = opts;
 
 	/**
 	 * Creates a desktop notification (for OSX only)

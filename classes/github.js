@@ -41,6 +41,8 @@
 			}
 		};
 
+		if(ws.config.hasOwnProperty('github_api_key')) opts.headers['Authorization'] = 'token ' + ws.config.github_api_key;
+
 		var req = https.request(opts, function(res)
 		{
 			var body = '';
