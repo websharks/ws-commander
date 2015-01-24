@@ -7,7 +7,8 @@
 		notify = require('osx-notifier'),
 		readline = require('readline');
 
-	var rl = readline.createInterface({input: process.stdin, output: process.stdout});
+	var rl = readline.createInterface({input: process.stdin, output: process.stdout}),
+		homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
 
 	/* === Initial Build Information === */
 
@@ -39,10 +40,9 @@
 
 				rl.question('GitHub Personal Access API Key: ', function(key)
 				{
-					opts.github_api_key = key;
+					opts.github_api_key = key.trim();
+					finish();
 				});
-
-				finish();
 			}
 			else
 			{
@@ -60,7 +60,7 @@
 		rl.close(); // Stops execution after function ends.
 
 		var json = JSON.stringify(opts);
-		fs.writeFileSync(__dirname + '/../cmdr.json', json);
+		fs.writeFileSync(homeDir + '/.cmdr.json', json);
 
 		console.log("\n" + 'That\'s it! Thanks for setting up the WebSharks Commander! Your settings have been saved.');
 		notify({
