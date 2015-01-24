@@ -40,7 +40,7 @@
 
 				rl.question('GitHub Personal Access API Key: ', function(key)
 				{
-					opts.github_api_key = key;
+					opts.github_api_key = key.trim();
 					finish();
 				});
 			}
