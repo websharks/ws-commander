@@ -21,4 +21,5 @@ This will automatically set up your `git` aliases.
 
 ```
 ws min|minify <path> # Minify CSS or JS based on extension
+ws github next-issue-url <url> # Guess next issue # based on a GitHub Repo URL
 ```
