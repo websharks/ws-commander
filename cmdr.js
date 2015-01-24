@@ -8,10 +8,11 @@
 		notify = require('osx-notifier'),
 		readline = require('readline');
 
-	var opts = {};
+	var opts = {},
+		homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
 
-	if(fs.existsSync(__dirname + '/cmdr.json'))
-		opts = require(__dirname + '/cmdr.json');
+	if(fs.existsSync(homeDir + '/.cmdr.json'))
+		opts = require(homeDir + '/.cmdr.json');
 
 	if(!opts.user_name) console.error('No basic config found. Please run `ws-install` before trying to use this tool.');
 
@@ -58,10 +59,16 @@
 
 	/* === Determine command === */
 
-	if(command === 'min' || command === 'minify') {
-		var compress = require(__dirname + '/classes/min.js').compress;
-
+	if(command === 'min' || command === 'minify')
+	{
+		var compress = require(__dirname + '/classes/min.js');
 		compress(args, flags);
+	}
+
+	if(command === 'git' || command === 'github')
+	{
+		var github = require(__dirname + '/classes/github.js');
+		github(args, flags);
 	}
 
 	else

@@ -1,9 +1,10 @@
 (function()
 {
 	var fs = require('fs'),
-		compressor = require('node-minify');
+		compressor = require('node-minify'),
+		homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
 
-	exports.compress = function(args, flags)
+	module.exports = function(args, flags)
 	{
 		if(!args.length) console.error('No arguments specified for minification.');
 
