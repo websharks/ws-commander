@@ -34,7 +34,7 @@
 		var opts = {
 			hostname: 'api.github.com',
 			port    : 443,
-			path    : '/repos/' + owner.toLowerCase() + '/' + repo.toLowerCase() + '/issues?sort=created&direction=desc&state=all',
+			path    : '/repos/' + owner.toLowerCase() + '/' + repo.toLowerCase() + '/issues?sort=created&direction=desc&state=all&per_page=1',
 			method  : 'GET',
 			headers : {
 				'User-Agent': 'WebSharks Commander'
