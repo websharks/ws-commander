@@ -66,7 +66,7 @@
 		compress(args, flags);
 	}
 
-	if(command === 'git' || command === 'github')
+	else if(command === 'git' || command === 'github')
 	{
 		var github = require(__dirname + '/classes/github.js');
 		github(args, flags);
