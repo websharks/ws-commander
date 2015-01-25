@@ -41,6 +41,30 @@
 				rl.question('GitHub Personal Access API Key: ', function(key)
 				{
 					opts.github_api_key = key.trim();
+					iDoneThisPrompt();
+				});
+			}
+			else
+			{
+				console.log('Okay, moving on.');
+				iDoneThisPrompt();
+			}
+		});
+	};
+
+	var iDoneThisPrompt = function()
+	{
+		rl.question('Would you like to set up the iDoneThis integration? [y/N]: ', function(doGitHub)
+		{
+			doGitHub = doGitHub.toLowerCase().charAt(0) === 'y';
+
+			if(doGitHub)
+			{
+				console.log('Okay, let\'s set up iDoneThis. You can find your API Token here: https://idonethis.com/api/token/');
+
+				rl.question('iDoneThis API Token: ', function(key)
+				{
+					opts.idonethis_api_key = key.trim();
 					finish();
 				});
 			}

@@ -72,6 +72,12 @@
 		github(args, flags);
 	}
 
+	else if(command === 'done' && args[0].length)
+		require(__dirname + '/classes/idonethis.js').done(args[0]);
+
+	else if(command === 'todo' && args[0].length)
+		require(__dirname + '/classes/idonethis.js').todo(args[0]);
+
 	else
 		console.error('No valid command specified. See `man ws` for details on usage.');
 })();
